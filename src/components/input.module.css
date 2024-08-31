@@ -5,3 +5,29 @@
     height: 50px;
     gap: 10px;
 } */
+
+
+.boxMap {
+    display: flex;
+    gap: 8px;
+}
+
+.boxForm{
+    border: 1px solid rgb(0, 0, 0);
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+}
+.inp{
+    width: 100px;
+    height: 20px;
+    border-radius: 20px;
+    border: rgb(78, 78, 78) solid 2px;
+}
+
+.list{
+    margin-top: 10px;
+}

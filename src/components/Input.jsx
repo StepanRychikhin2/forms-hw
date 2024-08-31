@@ -7,31 +7,32 @@ class TypeInp extends Component {
 		name: '',
 		number: '',
 	}
+	addContact = (e) => {
 
-	render() {
-		function addContact(e) {
-            const inpName = document.getElementById('inpName').value
+		const inpName = document.getElementById('inpName').value
 		const inpPhone = document.getElementById('inpPhone').value
-			let cons = {
-                "id": nanoid(),
-                "name": inpName,
-                "number": inpPhone,
-            }
-			console.log(e)
-            // this.setState({name: "awd"})
-			return (
-				e.contacts.push(cons)
-			) 
-			
+		let cons = {
+			id: nanoid(),
+			name: inpName,
+			number: inpPhone,
 		}
+		// console.log(e)
+		this.setState({ name: 'awd' })
+		
+		return e.contacts.push(cons)
+	}
+	render() {
+		
 
 		const www = this.state.contacts;
 		
-		console.log(www)
-		// console.log(inpPhone)
+		// console.log(www)
+		
 		return (
 			<div className={sty.box}>
+				<div className={sty.boxForm}>
 				<input
+				className={sty.inp}
 					type="text"
 					name="name"
 					pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -40,6 +41,7 @@ class TypeInp extends Component {
 					id="inpName"
 				/>
 				<input
+				className={sty.inp}
 					type="tel"
 					name="number"
 					pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -48,17 +50,19 @@ class TypeInp extends Component {
 					id="inpPhone"
 				/>
 
-				<button onClick={() => addContact(this.state)}>SEND</button>
-				<div>
+				<button onClick={() => this.addContact(this.state)}>SEND</button>
+				</div>
+				
+				<ul className={sty.list}>
 					{www.map((info) => {
 						return (
-							<li key={nanoid()}>
-								<p>{info.name}</p>
+							<li className={sty.boxMap} key={nanoid()}>
+								<p>{info.name}:</p>
 								<p>{info.number}</p>
 							</li>
 						)
 					})}
-				</div>
+				</ul>
 			</div>
 		)
 	}
