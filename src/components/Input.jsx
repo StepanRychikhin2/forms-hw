@@ -19,7 +19,10 @@ class TypeInp extends Component {
             }
 			console.log(e)
             // this.setState({name: "awd"})
-			return e.contacts.push(cons)
+			return (
+				e.contacts.push(cons)
+			) 
+			
 		}
 
 		const www = this.state.contacts;
