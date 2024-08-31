@@ -6,7 +6,8 @@ class TypeInp extends Component {
 		contacts: [{ id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' }],
 		name: '',
 		number: '',
-	}
+		filter: ""
+		}
 	addContact = (e) => {
 
 		const inpName = document.getElementById('inpName').value
@@ -20,6 +21,34 @@ class TypeInp extends Component {
 		this.setState({ name: 'awd' })
 		
 		return e.contacts.push(cons)
+	}
+
+	renderContacts = (e) => {
+		// const inpFind = document.getElementById('inpFind').value
+		// 	if (true) {
+		// this.setState({ filter: 'awd' })
+
+		// 		return (
+		// 			e.map((info) => {
+		// 				return (
+		// 					<li className={sty.boxMap} key={nanoid()}>
+		// 						<p>{info.name}:</p>
+		// 						<p>{info.number}</p>
+		// 					</li>
+		// 				)
+		// 			})
+		// 		)
+				
+		// 	} else {
+		// this.setState({ filter: 'awd' })
+
+		// 		return (
+
+		// 			console.log(123)
+		// 		)
+		// 	}
+			
+		
 	}
 	render() {
 		
@@ -39,9 +68,11 @@ class TypeInp extends Component {
 					title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
 					required
 					id="inpName"
+					placeholder='name'
 				/>
 				<input
 				className={sty.inp}
+				placeholder='number'
 					type="tel"
 					name="number"
 					pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -52,20 +83,24 @@ class TypeInp extends Component {
 
 				<button onClick={() => this.addContact(this.state)}>SEND</button>
 				</div>
-				
+				<h1>Contacts</h1>
+				<input
+				className={sty.inp}
+				placeholder='find'
+					type="tel"
+					name="number"
+					pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+					title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+					required
+					id="inpFInd"
+				/>
 				<ul className={sty.list}>
-					{www.map((info) => {
-						return (
-							<li className={sty.boxMap} key={nanoid()}>
-								<p>{info.name}:</p>
-								<p>{info.number}</p>
-							</li>
-						)
-					})}
+					{
+					this.renderContacts(this.state.contacts)}
 				</ul>
 			</div>
 		)
 	}
 }
 
-export default TypeInp
+export default TypeInp;
