@@ -61,6 +61,7 @@ class TypeInp extends Component {
 						id="inpName"
 						placeholder="name"
 					/>
+					
 					<input
 						className={sty.inp}
 						placeholder="number"
