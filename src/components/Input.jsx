@@ -2,7 +2,6 @@ import sty from './input.module.css'
 import React, { Component } from 'react'
 import Filter from './Filtyer'
 import { nanoid } from 'nanoid'
-import TodoList from './TodoLIst'
 class TypeInp extends Component {
 	state = {
 		contacts: [{ id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' }],
@@ -61,7 +60,7 @@ class TypeInp extends Component {
 						id="inpName"
 						placeholder="name"
 					/>
-					
+
 					<input
 						className={sty.inp}
 						placeholder="number"
