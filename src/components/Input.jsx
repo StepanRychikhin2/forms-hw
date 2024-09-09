@@ -1,10 +1,13 @@
 import sty from './input.module.css'
 import React, { Component } from 'react'
-import Filter from './Filtyer'
 import { nanoid } from 'nanoid'
+import { toBeDisabled } from '@testing-library/jest-dom/matchers'
 class TypeInp extends Component {
 	state = {
-		contacts: [{ id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' }],
+		contacts: [
+			// { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+			
+		],
 		name: '',
 		number: '',
 		filter: '',
@@ -39,9 +42,41 @@ class TypeInp extends Component {
 			filter: e.target.value,
 		}))
 	}
-
+	componentDidMount() {
+		if (localStorage.getItem('contacts') == null || localStorage.getItem('contacts') == undefined) {
+			document.getElementById("list").textContent = "list"
+		} else {
+			document.getElementById("list").textContent = " "
+			let setInStorage = localStorage.getItem('contacts')
+		let parseinJson = JSON.parse(setInStorage)
+		let awdawd = this.state.contacts.push(...parseinJson)
+		// console.log(...parseinJson)
+		// console.log(this.state.contacts.push(...parseinJson))
+		console.log(this.state.contacts)
+		// setInterval(() => alert('tick'), 2000);
+		
+		this.forceUpdate()
+		// setTimeout(this.forceUpdate(), 1000);
+		}
+		
+	}
+	// JSON.stringify(this.state.contacts)
+	componentDidUpdate() {
+		let getLOcalConts = localStorage.getItem('contacts')
+		let setItems = JSON.parse(getLOcalConts)
+		console.log(this.state.contacts)
+		let setLocalContacts = localStorage.setItem(
+			'contacts',
+			JSON.stringify(this.state.contacts)
+		)
+		console.log(setItems)
+		
+	}
 
 	render() {
+		
+		
+		console.log('render')
 		const { filter, contacts } = this.state
 		// console.log(filter)
 		// console.log(contacts)
@@ -86,27 +121,19 @@ class TypeInp extends Component {
 					id="inpFInd"
 					onChange={this.handleFilterChange}
 				/>
-				{/* <Filter
-					changeFilter={(filterVal) =>
-						this.setState((prevState) => ({
-							filter: filterVal,
-							contacts: contacts,
-							
-						}))
-					}
-				/> */}
-				{/* <TodoList todoList={filter !== '' ? contacts.filter(todo => todo.text.toLowerCase().includes(filter.toLowerCase())) : contacts} deleteTask={(id) => this.setState(prevState => ({ todos: contacts.filter(todo => todo.id !== id), filter: filter }))} completeTask={(id, status) => this.setState(prevState => ({ contacts: contacts.map(todo => todo.id === id ? {
-                        id: todo.id,
-                        text: todo.text
-        
-                    } : todo), filter: filter }))} /> */}
-				{/* <ul className={sty.list}>{this.renderContacts(this.state.contacts)}</ul> */}
-				<ul>
-					{this.state.contacts.filter((contact) =>contact.name.toLowerCase().includes(this.state.filter.toLowerCase())).map((contact) => (
-						<li key={contact.id}>
-							{contact.name}: {contact.number}
-						</li>
-					))}
+
+				<ul id='list'>
+					{this.state.contacts
+						.filter((contact) =>
+							contact.name
+								.toLowerCase()
+								.includes(this.state.filter.toLowerCase())
+						)
+						.map((contact) => (
+							<li key={contact.id}>
+								{contact.name}: {contact.number}
+							</li>
+						))}
 				</ul>
 			</div>
 		)
