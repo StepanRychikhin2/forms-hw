@@ -55,7 +55,8 @@ class TypeInp extends Component {
 		console.log(this.state.contacts)
 		// setInterval(() => alert('tick'), 2000);
 		
-		this.forceUpdate()
+		// this.forceUpdate()
+		this.setState({ name: 'awd' })
 		// setTimeout(this.forceUpdate(), 1000);
 		}
 		
