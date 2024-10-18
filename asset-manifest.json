@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": ".https://stepanrychikhin2.github.io/forms-hw/static/css/main.4697cd14.css",
-    "main.js": ".https://stepanrychikhin2.github.io/forms-hw/static/js/main.e465501e.js",
-    "static/media/index.cjs": ".https://stepanrychikhin2.github.io/forms-hw/static/media/index.1282334337c6cac7deca.cjs",
-    "static/media/logo.svg": ".https://stepanrychikhin2.github.io/forms-hw/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": ".https://stepanrychikhin2.github.io/forms-hw/index.html",
-    "main.4697cd14.css.map": ".https://stepanrychikhin2.github.io/forms-hw/static/css/main.4697cd14.css.map",
-    "main.e465501e.js.map": ".https://stepanrychikhin2.github.io/forms-hw/static/js/main.e465501e.js.map"
+    "main.css": "/forms-hw/static/css/main.4697cd14.css",
+    "main.js": "/forms-hw/static/js/main.5d0755cf.js",
+    "static/media/index.cjs": "/forms-hw/static/media/index.1282334337c6cac7deca.cjs",
+    "static/media/logo.svg": "/forms-hw/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/forms-hw/index.html",
+    "main.4697cd14.css.map": "/forms-hw/static/css/main.4697cd14.css.map",
+    "main.5d0755cf.js.map": "/forms-hw/static/js/main.5d0755cf.js.map"
   },
   "entrypoints": [
     "static/css/main.4697cd14.css",
-    "static/js/main.e465501e.js"
+    "static/js/main.5d0755cf.js"
   ]
 }
