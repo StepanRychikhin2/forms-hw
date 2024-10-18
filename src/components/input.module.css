@@ -11,7 +11,11 @@
     display: flex;
     gap: 8px;
 }
-
+.item {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
 .boxForm{
     border: 1px solid rgb(0, 0, 0);
     width: 200px;
