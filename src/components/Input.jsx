@@ -35,21 +35,27 @@ const TypeInp = () => {
 		console.log(contacts)
 		const inpNameElement = document.getElementById('inpName')
 		const inpPhoneElement = document.getElementById('inpPhone')
+		const result = contacts.find(({ number }) => number === inpPhoneElement.value);
+			  console.log(result);
+			  if (result === undefined) {
+				if (inpNameElement && inpPhoneElement) {
+					const inpName = inpNameElement.value
+					const inpPhone = inpPhoneElement.value
 
-		if (inpNameElement && inpPhoneElement) {
-			const inpName = inpNameElement.value
-			const inpPhone = inpPhoneElement.value
-
-			let cons = {
-				id: nanoid(),
-				name: inpName,
-				number: inpPhone,
-			}
-
-			return contacts.push(cons)
-		} else {
-			console.log('Input elements not found')
-		}
+					let cons = {
+						id: nanoid(),
+						name: inpName,
+						number: inpPhone,
+					}
+		
+					return contacts.push(cons)
+				} else {
+					console.log('Input elements not found')
+				}
+			  } else {
+				alert("такий номер вже існує")
+			  }
+		
 	}
 
 	const renderContacts = (e) => {
@@ -78,8 +84,12 @@ const TypeInp = () => {
 	}
 
 	const deleteItem = (e) => {
-		console.log(e)
-		
+		const result = contacts.find(({ id }) => id === e.id);
+		// console.log(e.id)
+		// console.log(result)
+		setContacts(contacts.filter(contact => contact.id !== e.id));
+
+
 	}
 
 
@@ -93,21 +103,21 @@ const TypeInp = () => {
 				let setInStorage = localStorage.getItem('contacts')
 				let parseinJson = JSON.parse(setInStorage)
 				let awdawd = contacts.push(...parseinJson)
-				console.log(contacts)
+				// console.log(contacts)
 				setUpd('w')
 			}
 		}
 		if (isMounted) {
-			console.log('moundet')
-			console.log(isMounted)
+			// console.log('moundet')
+			// console.log(isMounted)
 			let getLOcalConts = localStorage.getItem('contacts')
 			let setItems = JSON.parse(getLOcalConts)
-			console.log(contacts)
+			// console.log(contacts)
 			let setLocalContacts = localStorage.setItem(
 				'contacts',
 				JSON.stringify(contacts)
 			)
-			console.log(setItems)
+			// console.log(setItems)
 		}
 		setIsMounted(true)
 		// console.log('useEfeect')
@@ -154,7 +164,7 @@ const TypeInp = () => {
 
 	// }
 
-	console.log('render')
+	// console.log('render')
 	// const { filter, contacts } = this.state
 	// console.log(filter)
 	// console.log(contacts)
@@ -206,9 +216,9 @@ const TypeInp = () => {
 						contact.name.toLowerCase().includes(filter.toLowerCase())
 					)
 					.map((contact) => (
-						<li className={sty.item} key={contact.id}>
+						<li id={contact.id} className={sty.item} key={contact.id}>
 							<p>{contact.name}: {contact.number}</p>
-							<button onClick={(e) => deleteItem(e.target)}>del</button>
+							<button onClick={(e) => deleteItem(e.target.parentElement)}>del</button>
 						</li>
 					))}
 			</ul>

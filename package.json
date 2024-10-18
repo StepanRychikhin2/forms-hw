@@ -2,7 +2,7 @@
   "name": "forms-hw",
   "version": "0.1.0",
   "private": true,
-"homepage": ".https://stepanrychikhin2.github.io/forms-hw",
+"homepage": ".https://stepanrychikhin2.github.io/forms-hw/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
